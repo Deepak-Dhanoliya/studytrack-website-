@@ -54,13 +54,15 @@
 
         <h1>Privacy Policy</h1>
 
-        <p><strong>Last Updated:</strong> June 30, 2026</p>
+        <p><strong>Last Updated:</strong> July 14, 2026</p>
 
         <p>
             StudyTrack ("we," "our," or "us") is committed to protecting your privacy.
             This Privacy Policy explains how we collect, use, and disclose information
             when you use the StudyTrack mobile application ("App").
-            StudyTrack contains no advertisements, does not require an account, and we never sell your data.
+            StudyTrack contains no advertisements and we never sell your data.
+            The App works fully offline with no account; the optional cloud backup &amp; sync
+            feature uses your own Google account.
         </p>
 
         <h2>1. Information We Collect</h2>
@@ -69,17 +71,60 @@
         <p>
             The App does not require you to create an account.
             We do not collect personal information such as your name,
-            email address, phone number, or precise location.
+            email address, phone number, or precise location on our servers &mdash;
+            in fact, we operate no servers.
+            If you choose to enter an optional display name, it is stored locally on
+            your device and is included in your personal Google Drive backup only if you
+            enable cloud sync (see section 1c). It is never sent to us.
         </p>
 
         <h3>b. Study Data</h3>
         <p>
             Your study sessions, focus time, subjects, goals, achievements,
             and other study information are stored locally on your device.
-            This information is not transmitted to our servers.
+            This information is not transmitted to our servers, and stays on your device
+            unless you choose to enable cloud backup &amp; sync (see section 1c).
         </p>
 
-        <h3>c. Anonymous Usage Analytics</h3>
+        <h3>c. Cloud Backup &amp; Sync (Google Drive)</h3>
+        <p>
+            StudyTrack offers an <strong>optional, premium</strong> cloud backup &amp; sync
+            feature. It is turned <strong>off by default</strong> and is only activated when
+            you sign in with your Google account. When enabled:
+        </p>
+        <ul>
+            <li>
+                Your backup is stored in a <strong>private, hidden folder inside your own
+                Google Drive</strong> (using Google's restricted <code>drive.appdata</code>
+                scope). This folder is accessible only to StudyTrack &mdash; the App cannot
+                see, read, or access any other part of your Google Drive.
+            </li>
+            <li>
+                <strong>We operate no servers</strong> and cannot access, read, or browse
+                your backup. It lives entirely within your own Google Drive.
+            </li>
+            <li>
+                The backup includes your study sessions, subject names, your preferences
+                and settings, and your display name (if you set one). A random,
+                non-identifying device ID is included so your data can be merged across
+                your devices.
+            </li>
+            <li>
+                Your data is transmitted and stored securely by Google Drive (encrypted in
+                transit and at rest). StudyTrack does not add its own separate encryption layer.
+            </li>
+            <li>
+                You can turn sync off, and delete your cloud backup, at any time from
+                <strong>Settings &rarr; Backup &amp; Sync</strong>. Turning it off keeps all
+                of your data local to your device.
+            </li>
+        </ul>
+        <p>
+            A manual, fully offline backup option (exporting and importing a file) is also
+            available and never uses the network or a Google account.
+        </p>
+
+        <h3>d. Anonymous Usage Analytics</h3>
         <p>
             We use <strong>PostHog</strong> to collect anonymous usage analytics that help us
             understand how the App is used and improve its performance and features.
@@ -124,6 +169,20 @@
                 </a>
             </li>
             <li>
+                <a href="https://www.google.com/policies/privacy/" target="_blank">
+                    Google Drive
+                </a>
+                &mdash; only if you enable cloud backup &amp; sync; used to store your backup
+                in your own Google Drive.
+            </li>
+            <li>
+                <a href="https://www.google.com/policies/privacy/" target="_blank">
+                    Google Play Billing
+                </a>
+                &mdash; used only for the one-time in-app purchase; payments are handled
+                entirely by Google and no payment or card data reaches the App.
+            </li>
+            <li>
                 <a href="https://posthog.com/privacy" target="_blank">
                     PostHog (Anonymous Product Analytics)
                 </a>
@@ -143,12 +202,21 @@
             we will request your permission before collecting analytics data.
         </p>
 
+        <p>
+            Cloud backup &amp; sync is optional and off by default. You can enable or
+            disable it, and delete your Google Drive backup, at any time from
+            <strong>Settings &rarr; Backup &amp; Sync</strong>. Turning it off keeps all of
+            your data local to your device.
+        </p>
+
         <h2>5. Data Security</h2>
 
         <p>
             Data transmitted for analytics is encrypted in transit using secure
-            network connections. We take reasonable measures to protect the
-            information collected by the App.
+            network connections. If you enable cloud backup &amp; sync, your backup is
+            stored in a private, app-only folder in your own Google Drive and is protected
+            by Google's encryption in transit and at rest. We take reasonable measures to
+            protect the information collected by the App.
         </p>
 
         <h2>6. Changes to This Privacy Policy</h2>
