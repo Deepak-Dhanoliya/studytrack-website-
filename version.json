@@ -1,6 +1,6 @@
 {
   "latestVersion": "2.2.4",
-  "forceUpdate": false,
+  "forceUpdate": true,
   "minSupportedVersion": "2.2.4",
   "storeUrl": "https://play.google.com/store/apps/details?id=com.deepakdhanoliya9131.StudyTrack",
   "releaseNotes": "What's new in 2.2.4 ✨\n\n☁️ Backup & Sync — export, import & auto-sync across devices\n🐛 Bug fixes & performance improvements"
