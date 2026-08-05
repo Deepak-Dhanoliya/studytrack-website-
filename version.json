@@ -1,8 +1,9 @@
 {
-  "latestVersion": "2.2.7",
+  "latestVersion": "2.2.8",
   "forceUpdate": true,
   "minSupportedVersion": "2.2.4",
   "storeUrl": "https://play.google.com/store/apps/details?id=com.deepakdhanoliya9131.StudyTrack",
-  "releaseNotes": "What's new in 2.2.7 ✨\n\n⏱️ Focus Timer — set a custom countdown & watch it tick to zero\n🐛 Bug fixes & performance improvements"
+  "releaseNotes": "What's new in 2.2.8 ✨\n\n⏰ Focus Alarm — loud alarm when your timer ends\n📝 Log missed study sessions by hand\n🐛 Bug fixes & improvements"
 }
+
 
