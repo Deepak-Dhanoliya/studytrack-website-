@@ -1,7 +1,7 @@
 {
-  "latestVersion": "2.3.2",
-  "forceUpdate": true,
-  "minSupportedVersion": "2.2.4",
+  "latestVersion": "2.3.5",
+  "forceUpdate": false,
+  "minSupportedVersion": "2.3.4",
   "storeUrl": "https://play.google.com/store/apps/details?id=com.deepakdhanoliya9131.StudyTrack",
-  "releaseNotes": "What's new in 2.3.2 ✨\n\n🕐 A brand-new clock face for Focus Mode\n⏸️ Pause & resume without leaving Focus Mode\n🎨 Sharper digits and a more polished look\n🐛 Bug fixes & improvements"
+  "releaseNotes": "What's new in 2.3.5 ✨\n\n📈 New chart on the Monthly tab\n🎨 UI polish across the app\n🐛 Bug fixes & improvements"
 }
