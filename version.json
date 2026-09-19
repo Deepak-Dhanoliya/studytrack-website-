@@ -1,9 +1,8 @@
 {
-  "latestVersion": "2.2.8",
+  "latestVersion": "2.3.7",
   "forceUpdate": true,
-  "minSupportedVersion": "2.2.4",
+  "minSupportedVersion": "2.3.6",
   "storeUrl": "https://play.google.com/store/apps/details?id=com.deepakdhanoliya9131.StudyTrack",
-  "releaseNotes": "What's new in 2.2.8 ✨\n\n⏰ Focus Alarm — loud alarm when your timer ends\n📝 Log missed study sessions by hand\n🐛 Bug fixes & improvements"
+  "releaseNotes": "What's new in 2.3.7 ✨\n\n🎧 Focus sounds — rain, forest, library & more\n🔒 Sounds keep playing with your screen off\n⏯️ They pause & resume with your timer\n🐛 Bug fixes & improvements"
 }
-
 
