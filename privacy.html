@@ -2,342 +2,858 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Privacy Policy - StudyTrack</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <meta name="description" content="How StudyTrack handles your data: no account, study data stays on your device, and we never sell your data.">
+    <meta name="theme-color" content="#4F46E5">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #4F46E5;
+            --primary-dark: #4338CA;
+            --primary-soft: #EEF2FF;
+            --accent: #9333EA;
             --bg: #F8FAFC;
+            --surface: #FFFFFF;
             --text: #1E293B;
             --text-light: #64748B;
+            --border: #E2E8F0;
+            --shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.06);
+            --radius: 16px;
+            --header-h: 64px;
         }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #818CF8;
+                --primary-dark: #A5B4FC;
+                --primary-soft: rgba(129, 140, 248, 0.12);
+                --accent: #C084FC;
+                --bg: #0B1120;
+                --surface: #111827;
+                --text: #E2E8F0;
+                --text-light: #94A3B8;
+                --border: #1F2937;
+                --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
+            }
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
             color: var(--text);
-            line-height: 1.8;
-            padding: 4rem 10%;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 4rem;
-            border-radius: 20px;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+        a { color: var(--primary); text-underline-offset: 3px; }
+        a:hover { color: var(--primary-dark); }
+        :focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; border-radius: 6px; }
+
+        /* ── Header ─────────────────────────────────────────────── */
+        .site-header {
+            position: sticky; top: 0; z-index: 50;
+            height: var(--header-h);
+            background: color-mix(in srgb, var(--bg) 82%, transparent);
+            backdrop-filter: saturate(180%) blur(12px);
+            -webkit-backdrop-filter: saturate(180%) blur(12px);
+            border-bottom: 1px solid var(--border);
         }
-        h1 { font-family: 'Outfit', sans-serif; margin-bottom: 2rem; }
-        h2 { font-family: 'Outfit', sans-serif; margin-top: 2rem; margin-bottom: 1rem; color: var(--primary); }
-        h3 { margin-top: 1.5rem; margin-bottom: 0.75rem; }
-        p { margin-bottom: 1.5rem; color: var(--text-light); }
-        .back-link {
-            margin-bottom: 2rem;
-            display: inline-block;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
+        .header-inner {
+            max-width: 1160px; height: 100%; margin: 0 auto;
+            padding: 0 24px;
+            display: flex; align-items: center; justify-content: space-between;
         }
-        ul {
-            margin-left: 2rem;
-            margin-bottom: 1.5rem;
+        .logo {
+            font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.35rem;
+            color: var(--primary); text-decoration: none; letter-spacing: -0.01em;
+        }
+        .home-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 0.92rem; font-weight: 600; text-decoration: none;
             color: var(--text-light);
+            padding: 8px 14px; border-radius: 999px;
+            border: 1px solid var(--border); background: var(--surface);
+            transition: color .2s, border-color .2s;
         }
-        li { margin-bottom: 0.5rem; }
-        a { color: var(--primary); }
+        .home-link:hover { color: var(--primary); border-color: var(--primary); }
+
+        /* ── Hero ───────────────────────────────────────────────── */
+        .hero {
+            position: relative; overflow: hidden;
+            padding: 72px 24px 48px;
+            text-align: center;
+        }
+        .hero::before {
+            content: ""; position: absolute; inset: -40% -10% auto;
+            height: 420px; z-index: -1;
+            background: radial-gradient(closest-side, rgba(79, 70, 229, 0.16), transparent 70%),
+                        radial-gradient(closest-side at 70% 40%, rgba(147, 51, 234, 0.12), transparent 70%);
+        }
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--primary); background: var(--primary-soft);
+            padding: 6px 12px; border-radius: 999px;
+        }
+        .hero h1 {
+            font-family: 'Outfit', sans-serif; font-weight: 800;
+            font-size: clamp(2.3rem, 6vw, 3.6rem); line-height: 1.08; letter-spacing: -0.02em;
+            margin: 18px 0 16px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .meta {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+            font-size: 0.9rem; color: var(--text-light);
+        }
+        .meta span {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 6px 12px; border-radius: 999px;
+            background: var(--surface); border: 1px solid var(--border);
+        }
+        .lead {
+            max-width: 720px; margin: 28px auto 0;
+            font-size: 1.08rem; color: var(--text-light);
+        }
+        .lead strong { color: var(--text); }
+
+        /* ── At a glance ────────────────────────────────────────── */
+        .glance {
+            max-width: 1160px; margin: 8px auto 0; padding: 0 24px;
+        }
+        .glance-grid {
+            display: grid; gap: 14px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        .glance-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow);
+        }
+        .glance-icon {
+            width: 40px; height: 40px; border-radius: 12px;
+            display: grid; place-items: center;
+            background: var(--primary-soft); color: var(--primary); margin-bottom: 12px;
+        }
+        .glance-icon svg { width: 20px; height: 20px; }
+        .glance-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+        .glance-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.55; }
+        .glance-note { margin-top: 12px; font-size: 0.82rem; color: var(--text-light); text-align: center; }
+
+        /* ── Layout ─────────────────────────────────────────────── */
+        .layout {
+            max-width: 1160px; margin: 48px auto 0; padding: 0 24px;
+            display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 56px;
+            align-items: start;
+        }
+
+        /* Table of contents */
+        .toc { position: sticky; top: calc(var(--header-h) + 24px); }
+        .toc-title {
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--text-light); margin-bottom: 12px;
+        }
+        .toc ol { list-style: none; border-left: 2px solid var(--border); }
+        .toc li a {
+            display: block; margin-left: -2px; padding: 6px 0 6px 14px;
+            border-left: 2px solid transparent;
+            font-size: 0.9rem; line-height: 1.4; text-decoration: none; color: var(--text-light);
+            transition: color .15s, border-color .15s;
+        }
+        .toc li a:hover { color: var(--text); }
+        .toc li a.active { color: var(--primary); border-left-color: var(--primary); font-weight: 600; }
+        .toc .sub a { padding-left: 28px; font-size: 0.85rem; }
+
+        /* Mobile table of contents */
+        .toc-mobile { display: none; }
+
+        /* ── Content ────────────────────────────────────────────── */
+        .content { max-width: 740px; min-width: 0; }
+        .section {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); box-shadow: var(--shadow);
+            padding: 36px 40px; margin-bottom: 20px;
+            scroll-margin-top: calc(var(--header-h) + 16px);
+        }
+        .section h2 {
+            display: flex; align-items: center; gap: 12px;
+            font-family: 'Outfit', sans-serif; font-weight: 700;
+            font-size: 1.55rem; line-height: 1.25; letter-spacing: -0.01em;
+            margin-bottom: 18px;
+        }
+        .num {
+            flex: none; width: 34px; height: 34px; border-radius: 10px;
+            display: grid; place-items: center;
+            font-size: 0.95rem; font-weight: 700; color: #fff;
+            background: linear-gradient(135deg, #4F46E5, #9333EA);
+        }
+        .sub-section { scroll-margin-top: calc(var(--header-h) + 16px); }
+        .sub-section + .sub-section { margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--border); }
+        .sub-section h3 {
+            font-size: 1.1rem; font-weight: 700; margin-bottom: 10px;
+            display: flex; align-items: baseline; gap: 8px;
+        }
+        .sub-section h3 .tag {
+            font-size: 0.8rem; font-weight: 700; color: var(--primary);
+            background: var(--primary-soft); padding: 1px 8px; border-radius: 6px;
+        }
+        .content p { color: var(--text-light); margin-bottom: 14px; }
+        .content p:last-child { margin-bottom: 0; }
+        .content strong { color: var(--text); font-weight: 600; }
+        .content code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.86em;
+            background: var(--primary-soft); color: var(--primary); padding: 1px 6px; border-radius: 6px;
+        }
+        .content ul { list-style: none; margin: 4px 0 16px; }
+        .content ul li {
+            position: relative; color: var(--text-light);
+            padding-left: 22px; margin-bottom: 10px;
+        }
+        .content ul li::before {
+            content: ""; position: absolute; left: 4px; top: 0.72em;
+            width: 7px; height: 7px; border-radius: 50%;
+            background: linear-gradient(135deg, #4F46E5, #9333EA);
+        }
+
+        /* Third-party services */
+        .services { list-style: none; display: grid; gap: 10px; margin-top: 6px; }
+        .content ul.services li { padding: 0; margin: 0; }
+        .content ul.services li::before { display: none; }
+        .service {
+            display: block; padding: 14px 16px; border-radius: 12px;
+            border: 1px solid var(--border); background: var(--bg);
+        }
+        .service a { font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+        .service a:hover { text-decoration: underline; }
+        .service a svg { width: 14px; height: 14px; }
+        .service span { display: block; font-size: 0.92rem; color: var(--text-light); margin-top: 2px; }
+
+        /* Contact card */
+        .contact {
+            display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;
+            margin-top: 16px; padding: 20px; border-radius: 14px;
+            background: linear-gradient(135deg, rgba(79,70,229,0.08), rgba(147,51,234,0.08));
+            border: 1px solid var(--border);
+        }
+        .contact-email { font-weight: 700; color: var(--text); word-break: break-all; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: #4F46E5; color: #fff; text-decoration: none; font-weight: 600;
+            padding: 11px 20px; border-radius: 999px;
+            box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+            transition: transform .2s, background .2s;
+        }
+        .btn:hover { color: #fff; background: #4338CA; transform: translateY(-1px); }
+        .btn svg { width: 16px; height: 16px; }
+
+        /* ── Footer ─────────────────────────────────────────────── */
+        footer {
+            margin-top: 72px; padding: 40px 24px calc(40px + env(safe-area-inset-bottom));
+            background: var(--surface); border-top: 1px solid var(--border);
+            text-align: center; color: var(--text-light); font-size: 0.92rem;
+        }
+        .footer-links { margin-top: 10px; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 24px; }
+        .footer-links a { color: var(--text-light); text-decoration: none; }
+        .footer-links a:hover { color: var(--primary); }
+
+        /* Back to top */
+        .to-top {
+            position: fixed; right: 20px; bottom: calc(20px + env(safe-area-inset-bottom)); z-index: 40;
+            width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border);
+            background: var(--surface); color: var(--text); box-shadow: var(--shadow);
+            display: grid; place-items: center; cursor: pointer;
+            opacity: 0; transform: translateY(8px); pointer-events: none;
+            transition: opacity .2s, transform .2s;
+        }
+        .to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+        .to-top svg { width: 18px; height: 18px; }
+
+        /* ── Responsive ─────────────────────────────────────────── */
+        @media (max-width: 1000px) {
+            .glance-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .layout { grid-template-columns: minmax(0, 1fr); gap: 0; margin-top: 32px; }
+            .toc { display: none; }
+            .toc-mobile {
+                display: block; position: sticky; top: calc(var(--header-h) + 10px); z-index: 30;
+                margin-bottom: 20px;
+            }
+            .toc-mobile details {
+                background: var(--surface); border: 1px solid var(--border);
+                border-radius: 14px; box-shadow: var(--shadow);
+            }
+            .toc-mobile summary {
+                list-style: none; cursor: pointer;
+                display: flex; align-items: center; justify-content: space-between;
+                padding: 14px 18px; font-weight: 600; font-size: 0.95rem;
+            }
+            .toc-mobile summary::-webkit-details-marker { display: none; }
+            .toc-mobile summary .current { color: var(--text-light); font-weight: 500; font-size: 0.88rem; margin-left: 8px; }
+            .toc-mobile summary svg { width: 18px; height: 18px; transition: transform .2s; flex: none; }
+            .toc-mobile details[open] summary svg { transform: rotate(180deg); }
+            .toc-mobile ol { list-style: none; padding: 0 10px 12px; max-height: 60vh; overflow-y: auto; }
+            .toc-mobile li a {
+                display: block; padding: 10px 10px; border-radius: 10px;
+                text-decoration: none; color: var(--text); font-size: 0.94rem;
+            }
+            .toc-mobile li a:hover, .toc-mobile li a.active { background: var(--primary-soft); color: var(--primary); }
+            .toc-mobile .sub a { padding-left: 24px; color: var(--text-light); font-size: 0.9rem; }
+            .content { max-width: none; }
+        }
+        @media (max-width: 600px) {
+            .header-inner { padding: 0 16px; }
+            .home-link span { display: none; }
+            .hero { padding: 48px 16px 32px; }
+            .lead { font-size: 1rem; }
+            .glance, .layout { padding: 0 16px; }
+            .glance-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+            .glance-card { display: flex; gap: 14px; align-items: flex-start; padding: 16px; }
+            .glance-icon { margin-bottom: 0; flex: none; }
+            .section { padding: 24px 20px; border-radius: 14px; }
+            .section h2 { font-size: 1.3rem; }
+            .num { width: 30px; height: 30px; font-size: 0.85rem; border-radius: 9px; }
+            .contact { flex-direction: column; align-items: stretch; }
+            .btn { justify-content: center; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            * { transition: none !important; }
+        }
+
+        @media print {
+            .site-header, .toc, .toc-mobile, .to-top, .glance, footer .footer-links { display: none !important; }
+            body { background: #fff; color: #000; }
+            .layout { display: block; margin: 0; }
+            .section { box-shadow: none; border: none; padding: 0 0 24px; }
+            .hero h1 { -webkit-text-fill-color: #000; background: none; }
+            .content p, .content ul li { color: #222; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" class="back-link">&larr; Back to Home</a>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">StudyTrack</a>
+            <a href="index.html" class="home-link" aria-label="Back to home">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                <span>Back to home</span>
+            </a>
+        </div>
+    </header>
 
-        <h1>Privacy Policy</h1>
+    <main>
+        <section class="hero">
+            <span class="eyebrow">Legal</span>
+            <h1>Privacy Policy</h1>
+            <div class="meta">
+                <span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                    <strong>Last Updated:</strong>&nbsp;September 19, 2026
+                </span>
+            </div>
+            <p class="lead">
+                StudyTrack ("we," "our," or "us") is committed to protecting your privacy.
+                This Privacy Policy explains how we collect, use, and disclose information
+                when you use the StudyTrack mobile application ("App").
+                We never sell your data.
+                The App works fully offline with no account; the optional cloud backup &amp; sync
+                feature uses your own Google account.
+                On Android, the free version of the App shows occasional opt-in video ads to
+                unlock one specific feature (see <a href="#s1e">section 1e</a>) &mdash; <strong>Premium users see
+                no ads at all</strong>.
+            </p>
+        </section>
 
-        <p><strong>Last Updated:</strong> September 15, 2026</p>
+        <!-- A summary of statements made in full below. The full policy governs. -->
+        <section class="glance" aria-label="Privacy at a glance">
+            <div class="glance-grid">
+                <div class="glance-card">
+                    <div class="glance-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/><path d="M3 3l18 18"/></svg></div>
+                    <div>
+                        <h3>No account needed</h3>
+                        <p>The App does not require you to create an account.</p>
+                    </div>
+                </div>
+                <div class="glance-card">
+                    <div class="glance-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></div>
+                    <div>
+                        <h3>Your data stays on your device</h3>
+                        <p>Study data is stored locally. We operate no servers.</p>
+                    </div>
+                </div>
+                <div class="glance-card">
+                    <div class="glance-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+                    <div>
+                        <h3>We never sell your data</h3>
+                        <p>Analytics are anonymous and carry no study content.</p>
+                    </div>
+                </div>
+                <div class="glance-card">
+                    <div class="glance-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6.3L12 16.8 6.5 19.5l1-6.3L3 8.9 9 8z"/></svg></div>
+                    <div>
+                        <h3>No ads for Premium</h3>
+                        <p>Free users only see ads they choose to watch.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="glance-note">A quick summary &mdash; the full policy below is what applies.</p>
+        </section>
 
-        <p>
-            StudyTrack ("we," "our," or "us") is committed to protecting your privacy.
-            This Privacy Policy explains how we collect, use, and disclose information
-            when you use the StudyTrack mobile application ("App").
-            We never sell your data.
-            The App works fully offline with no account; the optional cloud backup &amp; sync
-            feature uses your own Google account.
-            On Android, the free version of the App shows occasional opt-in video ads to
-            unlock one specific feature (see section 1e) &mdash; <strong>Premium users see
-            no ads at all</strong>.
-        </p>
+        <div class="layout">
+            <nav class="toc" aria-label="On this page">
+                <p class="toc-title">On this page</p>
+                <ol>
+                    <li><a href="#s1">1. Information We Collect</a></li>
+                    <li class="sub"><a href="#s1a">a. Personal Information</a></li>
+                    <li class="sub"><a href="#s1b">b. Study Data</a></li>
+                    <li class="sub"><a href="#s1c">c. Cloud Backup &amp; Sync</a></li>
+                    <li class="sub"><a href="#s1d">d. Anonymous Analytics</a></li>
+                    <li class="sub"><a href="#s1e">e. Advertising</a></li>
+                    <li class="sub"><a href="#s1f">f. Crash Reporting</a></li>
+                    <li class="sub"><a href="#s1g">g. App Blocker</a></li>
+                    <li><a href="#s2">2. How We Use Information</a></li>
+                    <li><a href="#s3">3. Third-Party Services</a></li>
+                    <li><a href="#s4">4. Your Choices</a></li>
+                    <li><a href="#s5">5. Data Security</a></li>
+                    <li><a href="#s6">6. Changes to This Policy</a></li>
+                    <li><a href="#s7">7. Contact Us</a></li>
+                </ol>
+            </nav>
 
-        <h2>1. Information We Collect</h2>
+            <div class="content">
+                <div class="toc-mobile">
+                    <details>
+                        <summary>
+                            <span>On this page<span class="current" data-current></span></span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                        </summary>
+                        <ol>
+                            <li><a href="#s1">1. Information We Collect</a></li>
+                            <li class="sub"><a href="#s1a">a. Personal Information</a></li>
+                            <li class="sub"><a href="#s1b">b. Study Data</a></li>
+                            <li class="sub"><a href="#s1c">c. Cloud Backup &amp; Sync</a></li>
+                            <li class="sub"><a href="#s1d">d. Anonymous Analytics</a></li>
+                            <li class="sub"><a href="#s1e">e. Advertising</a></li>
+                            <li class="sub"><a href="#s1f">f. Crash Reporting</a></li>
+                            <li class="sub"><a href="#s1g">g. App Blocker</a></li>
+                            <li><a href="#s2">2. How We Use Information</a></li>
+                            <li><a href="#s3">3. Third-Party Services</a></li>
+                            <li><a href="#s4">4. Your Choices</a></li>
+                            <li><a href="#s5">5. Data Security</a></li>
+                            <li><a href="#s6">6. Changes to This Policy</a></li>
+                            <li><a href="#s7">7. Contact Us</a></li>
+                        </ol>
+                    </details>
+                </div>
 
-        <h3>a. Personal Information</h3>
-        <p>
-            The App does not require you to create an account.
-            We do not collect personal information such as your name,
-            email address, phone number, or precise location on our servers &mdash;
-            in fact, we operate no servers.
-            If you choose to enter an optional display name, it is stored locally on
-            your device and is included in your personal Google Drive backup only if you
-            enable cloud sync (see section 1c). It is never sent to us.
-        </p>
+                <!-- ── 1 ─────────────────────────────────────────── -->
+                <section class="section" id="s1" data-title="Information We Collect">
+                    <h2><span class="num">1</span>Information We Collect</h2>
 
-        <h3>b. Study Data</h3>
-        <p>
-            Your study sessions, focus time, subjects, goals, achievements,
-            and other study information are stored locally on your device.
-            This information is not transmitted to our servers, and stays on your device
-            unless you choose to enable cloud backup &amp; sync (see section 1c).
-        </p>
+                    <div class="sub-section" id="s1a" data-title="Personal Information">
+                        <h3><span class="tag">a</span>Personal Information</h3>
+                        <p>
+                            The App does not require you to create an account.
+                            We do not collect personal information such as your name,
+                            email address, phone number, or precise location on our servers &mdash;
+                            in fact, we operate no servers.
+                            If you choose to enter an optional display name, it is stored locally on
+                            your device and is included in your personal Google Drive backup only if you
+                            enable cloud sync (see <a href="#s1c">section 1c</a>). It is never sent to us.
+                        </p>
+                    </div>
 
-        <h3>c. Cloud Backup &amp; Sync (Google Drive)</h3>
-        <p>
-            StudyTrack offers an <strong>optional, premium</strong> cloud backup &amp; sync
-            feature. It is turned <strong>off by default</strong> and is only activated when
-            you sign in with your Google account. When enabled:
-        </p>
-        <ul>
-            <li>
-                Your backup is stored in a <strong>private, hidden folder inside your own
-                Google Drive</strong> (using Google's restricted <code>drive.appdata</code>
-                scope). This folder is accessible only to StudyTrack &mdash; the App cannot
-                see, read, or access any other part of your Google Drive.
-            </li>
-            <li>
-                <strong>We operate no servers</strong> and cannot access, read, or browse
-                your backup. It lives entirely within your own Google Drive.
-            </li>
-            <li>
-                The backup includes your study sessions, subject names, your preferences
-                and settings, and your display name (if you set one). A random,
-                non-identifying device ID is included so your data can be merged across
-                your devices.
-            </li>
-            <li>
-                Your data is transmitted and stored securely by Google Drive (encrypted in
-                transit and at rest). StudyTrack does not add its own separate encryption layer.
-            </li>
-            <li>
-                You can turn sync off, and delete your cloud backup, at any time from
-                <strong>Settings &rarr; Backup &amp; Sync</strong>. Turning it off keeps all
-                of your data local to your device.
-            </li>
-        </ul>
-        <p>
-            A manual, fully offline backup option (exporting and importing a file) is also
-            available and never uses the network or a Google account.
-        </p>
+                    <div class="sub-section" id="s1b" data-title="Study Data">
+                        <h3><span class="tag">b</span>Study Data</h3>
+                        <p>
+                            Your study sessions, focus time, subjects, goals, achievements,
+                            and other study information are stored locally on your device.
+                            This information is not transmitted to our servers, and stays on your device
+                            unless you choose to enable cloud backup &amp; sync (see <a href="#s1c">section 1c</a>).
+                        </p>
+                    </div>
 
-        <h3>d. Anonymous Usage Analytics</h3>
-        <p>
-            We use <strong>PostHog</strong> to collect anonymous usage analytics that help us
-            understand how the App is used and improve its performance and features.
-            Examples of events we may collect include starting or completing a study session,
-            viewing screens, using widgets, changing the app theme, completing onboarding,
-            and interacting with app features.
-        </p>
+                    <div class="sub-section" id="s1c" data-title="Cloud Backup &amp; Sync">
+                        <h3><span class="tag">c</span>Cloud Backup &amp; Sync (Google Drive)</h3>
+                        <p>
+                            StudyTrack offers an <strong>optional, premium</strong> cloud backup &amp; sync
+                            feature. It is turned <strong>off by default</strong> and is only activated when
+                            you sign in with your Google account. When enabled:
+                        </p>
+                        <ul>
+                            <li>
+                                Your backup is stored in a <strong>private, hidden folder inside your own
+                                Google Drive</strong> (using Google's restricted <code>drive.appdata</code>
+                                scope). This folder is accessible only to StudyTrack &mdash; the App cannot
+                                see, read, or access any other part of your Google Drive.
+                            </li>
+                            <li>
+                                <strong>We operate no servers</strong> and cannot access, read, or browse
+                                your backup. It lives entirely within your own Google Drive.
+                            </li>
+                            <li>
+                                The backup includes your study sessions, subject names, your preferences
+                                and settings, and your display name (if you set one). A random,
+                                non-identifying device ID is included so your data can be merged across
+                                your devices.
+                            </li>
+                            <li>
+                                Your data is transmitted and stored securely by Google Drive (encrypted in
+                                transit and at rest). StudyTrack does not add its own separate encryption layer.
+                            </li>
+                            <li>
+                                You can turn sync off, and delete your cloud backup, at any time from
+                                <strong>Settings &rarr; Backup &amp; Sync</strong>. Turning it off keeps all
+                                of your data local to your device.
+                            </li>
+                        </ul>
+                        <p>
+                            A manual, fully offline backup option (exporting and importing a file) is also
+                            available and never uses the network or a Google account.
+                        </p>
+                    </div>
 
-        <p>
-            These analytics are associated with a randomly generated application identifier.
-            We do <strong>not</strong> send your name, email address, phone number,
-            study notes, subject names, goals, or other personally identifying information
-            to PostHog.
-        </p>
+                    <div class="sub-section" id="s1d" data-title="Anonymous Analytics">
+                        <h3><span class="tag">d</span>Anonymous Usage Analytics</h3>
+                        <p>
+                            We use <strong>PostHog</strong> to collect anonymous usage analytics that help us
+                            understand how the App is used and improve its performance and features.
+                            Examples of events we may collect include starting or completing a study session,
+                            viewing screens, using widgets, changing the app theme, completing onboarding,
+                            and interacting with app features.
+                        </p>
+                        <p>
+                            These analytics are associated with a randomly generated application identifier.
+                            We do <strong>not</strong> send your name, email address, phone number,
+                            study notes, subject names, goals, or other personally identifying information
+                            to PostHog.
+                        </p>
+                    </div>
 
-        <h3>e. Advertising (Google AdMob)</h3>
-        <p>
-            On <strong>Android</strong>, the free version of the App shows
-            <strong>rewarded ads</strong> through <strong>Google AdMob</strong>. These are
-            strictly <strong>opt-in</strong>: an ad is only ever shown after you tap
-            "Watch a short ad" to unlock an optional action &mdash; such as logging a past study
-            session; exporting, sharing, or importing a backup of your data; or opening your
-            weekly recap card or your monthly Study Wrapped. The App shows no banner ads, no
-            pop-up ads, and no ads on launch or between screens.
-        </p>
-        <p>
-            <strong>Premium users see no ads.</strong> If you own the Premium unlock, the
-            advertising SDK is never started, no ad is ever requested, and none of the data
-            described below is collected for advertising.
-        </p>
-        <ul>
-            <li>
-                When an ad is requested, Google receives your device's
-                <strong>Advertising ID</strong> along with standard device and network
-                information (such as device type, operating system version, general
-                region derived from IP address, and ad interaction events).
-                This is collected and used by Google, not by us &mdash; we operate no servers
-                and never receive it.
-            </li>
-            <li>
-                Advertising data is <strong>not linked</strong> to the anonymous analytics
-                identifier described in section 1d, and no study data &mdash; sessions,
-                subject names, goals, notes, or your display name &mdash; is ever shared with
-                Google for advertising.
-            </li>
-            <li>
-                Where permitted by law, ads may be <strong>personalised</strong> &mdash; that is,
-                selected using information about your interests and prior activity, as described
-                in Google's policies linked below. Where consent is required (for example in the
-                European Economic Area, the United Kingdom, and Switzerland), ads are personalised
-                <strong>only if you agree</strong>; if you decline, or if your choice cannot be
-                determined, the App requests <strong>non-personalised</strong> ads instead, which
-                are based on general context rather than a profile of you.
-            </li>
-            <li>
-                Ad content is limited to a <strong>"Teen" maximum content rating</strong>.
-                The App is not directed to children.
-            </li>
-            <li>
-                If you are in the <strong>European Economic Area, the United Kingdom, or
-                Switzerland</strong>, a Google-certified consent form is shown before any ad is
-                requested, and ads are only requested if the applicable consent is in place.
-            </li>
-        </ul>
-        <p>
-            Google's handling of this data is governed by
-            <a href="https://policies.google.com/technologies/partner-sites" target="_blank">
-                How Google uses information from sites or apps that use our services</a>
-            and
-            <a href="https://policies.google.com/technologies/ads" target="_blank">
-                Google's Advertising policies</a>.
-        </p>
+                    <div class="sub-section" id="s1e" data-title="Advertising">
+                        <h3><span class="tag">e</span>Advertising (Google AdMob)</h3>
+                        <p>
+                            On <strong>Android</strong>, the free version of the App shows
+                            <strong>rewarded ads</strong> through <strong>Google AdMob</strong>. These are
+                            strictly <strong>opt-in</strong>: an ad is only ever shown after you tap
+                            "Watch a short ad" to unlock an optional action &mdash; such as logging a past study
+                            session; exporting, sharing, or importing a backup of your data; or opening your
+                            weekly recap card or your monthly Study Wrapped. The App shows no banner ads, no
+                            pop-up ads, and no ads on launch or between screens.
+                        </p>
+                        <p>
+                            <strong>Premium users see no ads.</strong> If you own the Premium unlock, the
+                            advertising SDK is never started, no ad is ever requested, and none of the data
+                            described below is collected for advertising.
+                        </p>
+                        <ul>
+                            <li>
+                                When an ad is requested, Google receives your device's
+                                <strong>Advertising ID</strong> along with standard device and network
+                                information (such as device type, operating system version, general
+                                region derived from IP address, and ad interaction events).
+                                This is collected and used by Google, not by us &mdash; we operate no servers
+                                and never receive it.
+                            </li>
+                            <li>
+                                Advertising data is <strong>not linked</strong> to the anonymous analytics
+                                identifier described in <a href="#s1d">section 1d</a>, and no study data &mdash; sessions,
+                                subject names, goals, notes, or your display name &mdash; is ever shared with
+                                Google for advertising.
+                            </li>
+                            <li>
+                                Where permitted by law, ads may be <strong>personalised</strong> &mdash; that is,
+                                selected using information about your interests and prior activity, as described
+                                in Google's policies linked below. Where consent is required (for example in the
+                                European Economic Area, the United Kingdom, and Switzerland), ads are personalised
+                                <strong>only if you agree</strong>; if you decline, or if your choice cannot be
+                                determined, the App requests <strong>non-personalised</strong> ads instead, which
+                                are based on general context rather than a profile of you.
+                            </li>
+                            <li>
+                                Ad content is limited to a <strong>"Teen" maximum content rating</strong>.
+                                The App is not directed to children.
+                            </li>
+                            <li>
+                                If you are in the <strong>European Economic Area, the United Kingdom, or
+                                Switzerland</strong>, a Google-certified consent form is shown before any ad is
+                                requested, and ads are only requested if the applicable consent is in place.
+                            </li>
+                        </ul>
+                        <p>
+                            Google's handling of this data is governed by
+                            <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">How Google uses information from sites or apps that use our services</a>
+                            and
+                            <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Google's Advertising policies</a>.
+                        </p>
+                    </div>
 
-        <h3>f. Focus Sounds</h3>
-        <p>
-            One focus sound (Rain) is built into the App. The others are downloaded the first time
-            you choose one &mdash; from this website, which is hosted on <strong>GitHub Pages</strong>
-            &mdash; and are then stored on your device, so they play offline from then on.
-            Downloading a sound is an ordinary request for an audio file: it sends no account,
-            study data, or identifier. Like any web request, it does reveal your device's IP
-            address to GitHub, which hosts the files. We receive nothing from these downloads.
-        </p>
+                    <div class="sub-section" id="s1f" data-title="Crash Reporting">
+                        <h3><span class="tag">f</span>Crash Reporting (Sentry)</h3>
+                        <p>
+                            We use <strong>Sentry</strong> to tell us when the App crashes. When a crash
+                            happens, a report is sent containing the technical details of the failure &mdash;
+                            the error and where in the App's code it occurred, the App version, and basic
+                            device information such as the device model and operating system version &mdash;
+                            together with a short trail of the screens you visited and the buttons you tapped
+                            immediately beforehand, which is what lets us reproduce the fault and fix it.
+                        </p>
+                        <p>
+                            The App is configured <strong>not</strong> to send personally identifying
+                            information with a crash report: no name, no email address, and none of your study
+                            data &mdash; sessions, subject names, goals, or notes. <strong>Your IP address is
+                            not stored</strong>: the App does not attach it to a report, and our Sentry project
+                            is configured to discard it rather than record it.
+                            There is no account to attach a crash to, and we do not assign you an identifier
+                            for crash reporting. Sentry is used for crashes only: it does not record your
+                            screen, replay your session, or track your use of the App. Crash reports are not
+                            linked to the anonymous analytics identifier described in <a href="#s1d">section 1d</a>, and nothing
+                            is sent unless the App actually fails.
+                        </p>
+                    </div>
 
-        <h2>2. How We Use Information</h2>
+                    <div class="sub-section" id="s1g" data-title="App Blocker">
+                        <h3><span class="tag">g</span>App Blocker (Android Accessibility Service)</h3>
+                        <p>
+                            On <strong>Android</strong>, StudyTrack offers an <strong>optional</strong> App
+                            Blocker that blocks apps you choose while a focus session is running. It is
+                            <strong>off by default</strong>. Before it can work, the App explains what it does
+                            and you must turn on <strong>StudyTrack App Blocker</strong> yourself in your
+                            device's Accessibility settings. It uses Android's
+                            <strong>Accessibility Service API</strong> as follows:
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>What it accesses:</strong> only the name of the app that comes to the
+                                front of your screen (for example, "Instagram was opened"). It uses this solely
+                                to check whether that app is one you chose to block while a focus session is
+                                running, and if so, to return you to your home screen and show a StudyTrack
+                                screen in its place.
+                            </li>
+                            <li>
+                                <strong>What it does not access:</strong> the App Blocker
+                                <strong>cannot read, see, or record anything on your screen</strong> &mdash; no
+                                text, messages, passwords, images, or what you type or tap. It is configured
+                                with window content retrieval turned off, so Android does not give it this
+                                information.
+                            </li>
+                            <li>
+                                <strong>Installed apps list:</strong> to let you choose which apps to block, the
+                                App shows a list of the apps installed on your device that have a home-screen
+                                icon. This list is read on your device when you open the App Blocker settings
+                                screen and is <strong>never stored or sent anywhere</strong>. Only the apps you
+                                choose to block are saved, and only on your device.
+                            </li>
+                            <li>
+                                <strong>Nothing leaves your device.</strong> Which apps you open, which apps you
+                                block, and when you were blocked are never sent to us, to PostHog, to Sentry, or
+                                to any other party. The App keeps only a simple count of how many times an app
+                                was blocked, stored locally and shown to you in the App Blocker settings screen.
+                            </li>
+                            <li>
+                                <strong>Analytics:</strong> the anonymous analytics described in <a href="#s1d">section 1d</a> may
+                                record that you turned the App Blocker on or off and <em>how many</em> apps you
+                                chose to block &mdash; never the names of those apps.
+                            </li>
+                            <li>
+                                The App Blocker is <strong>not an assistive or accessibility tool</strong> for
+                                people with disabilities; it uses the Accessibility Service API only for the
+                                purpose described above.
+                            </li>
+                        </ul>
+                    </div>
+                </section>
 
-        <p>
-            Anonymous analytics are used solely to:
-        </p>
+                <!-- ── 2 ─────────────────────────────────────────── -->
+                <section class="section" id="s2" data-title="How We Use Information">
+                    <h2><span class="num">2</span>How We Use Information</h2>
+                    <p>Anonymous analytics are used solely to:</p>
+                    <ul>
+                        <li>Understand how features are used.</li>
+                        <li>Improve the App and user experience.</li>
+                        <li>Identify and fix issues.</li>
+                        <li>Guide future feature development.</li>
+                    </ul>
+                    <p>
+                        Your locally stored study data is used only to provide the App's functionality
+                        on your device.
+                    </p>
+                    <p>
+                        Advertising data (<a href="#s1e">section 1e</a>) is used by Google to serve and measure the rewarded
+                        ads that keep the free version of the App free, and to detect invalid or fraudulent
+                        ad activity. We use it for no other purpose, and we receive none of it ourselves.
+                    </p>
+                    <p>
+                        Crash reports (<a href="#s1f">section 1f</a>) are used solely to find and fix the faults that cause
+                        the App to stop working. They are not used to build a profile of you, and they are
+                        never used for advertising.
+                    </p>
+                    <p>
+                        Information the App Blocker accesses (<a href="#s1g">section 1g</a>) is used only on your device, at
+                        the moment an app is opened, to block the apps you chose during a focus session.
+                        It is never stored, never sent anywhere, and never used for analytics or
+                        advertising.
+                    </p>
+                </section>
 
-        <ul>
-            <li>Understand how features are used.</li>
-            <li>Improve the App and user experience.</li>
-            <li>Identify and fix issues.</li>
-            <li>Guide future feature development.</li>
-        </ul>
+                <!-- ── 3 ─────────────────────────────────────────── -->
+                <section class="section" id="s3" data-title="Third-Party Services">
+                    <h2><span class="num">3</span>Third-Party Services</h2>
+                    <p>The App uses the following third-party services:</p>
+                    <ul class="services">
+                        <li class="service">
+                            <a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer">Google Play Services<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+                        </li>
+                        <li class="service">
+                            <a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer">Google Drive<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+                            <span>&mdash; only if you enable cloud backup &amp; sync; used to store your backup in your own Google Drive.</span>
+                        </li>
+                        <li class="service">
+                            <a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer">Google Play Billing<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+                            <span>&mdash; used only for the one-time in-app purchase; payments are handled entirely by Google and no payment or card data reaches the App.</span>
+                        </li>
+                        <li class="service">
+                            <a href="https://posthog.com/privacy" target="_blank" rel="noopener noreferrer">PostHog (Anonymous Product Analytics)<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+                        </li>
+                        <li class="service">
+                            <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener noreferrer">Google AdMob<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+                            <span>&mdash; Android only, free version only; used to show the opt-in rewarded ads described in <a href="#s1e">section 1e</a>. Not used at all for Premium users.</span>
+                        </li>
+                        <li class="service">
+                            <a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer">Sentry (Crash Reporting)<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+                            <span>&mdash; receives a report only when the App crashes, as described in <a href="#s1f">section 1f</a>.</span>
+                        </li>
+                    </ul>
+                </section>
 
-        <p>
-            Your locally stored study data is used only to provide the App's functionality
-            on your device.
-        </p>
+                <!-- ── 4 ─────────────────────────────────────────── -->
+                <section class="section" id="s4" data-title="Your Choices">
+                    <h2><span class="num">4</span>Your Choices</h2>
+                    <p>
+                        Analytics collected through PostHog use a random application identifier
+                        rather than directly identifying information. You can reset this identifier
+                        by clearing the App's data or reinstalling the App.
+                    </p>
+                    <p>
+                        If analytics consent is required by applicable law in your region,
+                        we will request your permission before collecting analytics data.
+                    </p>
+                    <p>
+                        Cloud backup &amp; sync is optional and off by default. You can enable or
+                        disable it, and delete your Google Drive backup, at any time from
+                        <strong>Settings &rarr; Backup &amp; Sync</strong>. Turning it off keeps all of
+                        your data local to your device.
+                    </p>
+                    <p>
+                        <strong>Advertising.</strong> Ads are never shown unless you choose to watch one,
+                        and you can simply decline. To remove ads entirely, purchase the
+                        <strong>Premium</strong> unlock &mdash; the advertising SDK is then never started.
+                        You can also reset or delete your Advertising ID at any time from your device's
+                        <strong>Settings &rarr; Google &rarr; Ads</strong>, which limits how ads are
+                        targeted and measured. If you are in the European Economic Area, the United
+                        Kingdom, or Switzerland, you can change or withdraw your advertising consent at any
+                        time from <strong>Settings &rarr; About &rarr; Ad privacy choices</strong>.
+                    </p>
+                    <p>
+                        <strong>App Blocker.</strong> The App Blocker is optional and off by default. You
+                        can switch blocking off at any time from <strong>Settings &rarr; App Blocker</strong>
+                        in the App, and you can remove its access completely by turning off
+                        <strong>StudyTrack App Blocker</strong> in your device's Accessibility settings.
+                        Uninstalling the App also removes it.
+                    </p>
+                </section>
 
-        <p>
-            Advertising data (section 1e) is used by Google to serve and measure the rewarded
-            ads that keep the free version of the App free, and to detect invalid or fraudulent
-            ad activity. We use it for no other purpose, and we receive none of it ourselves.
-        </p>
+                <!-- ── 5 ─────────────────────────────────────────── -->
+                <section class="section" id="s5" data-title="Data Security">
+                    <h2><span class="num">5</span>Data Security</h2>
+                    <p>
+                        Data transmitted for analytics is encrypted in transit using secure
+                        network connections. If you enable cloud backup &amp; sync, your backup is
+                        stored in a private, app-only folder in your own Google Drive and is protected
+                        by Google's encryption in transit and at rest. We take reasonable measures to
+                        protect the information collected by the App.
+                    </p>
+                </section>
 
-        <h2>3. Third-Party Services</h2>
+                <!-- ── 6 ─────────────────────────────────────────── -->
+                <section class="section" id="s6" data-title="Changes to This Policy">
+                    <h2><span class="num">6</span>Changes to This Privacy Policy</h2>
+                    <p>
+                        We may update this Privacy Policy from time to time.
+                        Any changes will be posted on this page with an updated
+                        "Last Updated" date.
+                    </p>
+                </section>
 
-        <p>The App uses the following third-party services:</p>
+                <!-- ── 7 ─────────────────────────────────────────── -->
+                <section class="section" id="s7" data-title="Contact Us">
+                    <h2><span class="num">7</span>Contact Us</h2>
+                    <p>
+                        If you have any questions about this Privacy Policy,
+                        please contact us at:
+                    </p>
+                    <div class="contact">
+                        <span class="contact-email">ddtechstudio8@gmail.com</span>
+                        <a class="btn" href="mailto:ddtechstudio8@gmail.com?subject=StudyTrack%20Privacy%20Policy">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                            Email us
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
 
-        <ul>
-            <li>
-                <a href="https://www.google.com/policies/privacy/" target="_blank">
-                    Google Play Services
-                </a>
-            </li>
-            <li>
-                <a href="https://www.google.com/policies/privacy/" target="_blank">
-                    Google Drive
-                </a>
-                &mdash; only if you enable cloud backup &amp; sync; used to store your backup
-                in your own Google Drive.
-            </li>
-            <li>
-                <a href="https://www.google.com/policies/privacy/" target="_blank">
-                    Google Play Billing
-                </a>
-                &mdash; used only for the one-time in-app purchase; payments are handled
-                entirely by Google and no payment or card data reaches the App.
-            </li>
-            <li>
-                <a href="https://posthog.com/privacy" target="_blank">
-                    PostHog (Anonymous Product Analytics)
-                </a>
-            </li>
-            <li>
-                <a href="https://support.google.com/admob/answer/6128543" target="_blank">
-                    Google AdMob
-                </a>
-                &mdash; Android only, free version only; used to show the opt-in rewarded ads
-                described in section 1e. Not used at all for Premium users.
-            </li>
-            <li>
-                <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank">
-                    GitHub Pages
-                </a>
-                &mdash; hosts the focus sounds the App downloads the first time you choose one
-                (see section 1f).
-            </li>
-        </ul>
+    <footer>
+        <p>&copy; 2026 StudyTrack. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="app-ads.txt">Ad Verification</a>
+        </div>
+    </footer>
 
-        <h2>4. Your Choices</h2>
+    <button class="to-top" type="button" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
 
-        <p>
-            Analytics collected through PostHog use a random application identifier
-            rather than directly identifying information. You can reset this identifier
-            by clearing the App's data or reinstalling the App.
-        </p>
+    <script>
+        (function () {
+            // Highlight the section being read, in both tables of contents.
+            var links = document.querySelectorAll('.toc a, .toc-mobile a');
+            var current = document.querySelector('[data-current]');
+            var targets = document.querySelectorAll('.section, .sub-section');
+            function setActive(id, title) {
+                links.forEach(function (a) {
+                    a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+                });
+                if (current) current.textContent = title ? '· ' + title : '';
+            }
+            if ('IntersectionObserver' in window) {
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        if (e.isIntersecting) setActive(e.target.id, e.target.getAttribute('data-title'));
+                    });
+                }, { rootMargin: '-20% 0px -70% 0px' });
+                targets.forEach(function (t) { io.observe(t); });
+            }
 
-        <p>
-            If analytics consent is required by applicable law in your region,
-            we will request your permission before collecting analytics data.
-        </p>
+            // Close the mobile menu once a section is chosen.
+            var details = document.querySelector('.toc-mobile details');
+            document.querySelectorAll('.toc-mobile a').forEach(function (a) {
+                a.addEventListener('click', function () { if (details) details.open = false; });
+            });
 
-        <p>
-            Cloud backup &amp; sync is optional and off by default. You can enable or
-            disable it, and delete your Google Drive backup, at any time from
-            <strong>Settings &rarr; Backup &amp; Sync</strong>. Turning it off keeps all of
-            your data local to your device.
-        </p>
-
-        <p>
-            <strong>Advertising.</strong> Ads are never shown unless you choose to watch one,
-            and you can simply decline. To remove ads entirely, purchase the
-            <strong>Premium</strong> unlock &mdash; the advertising SDK is then never started.
-            You can also reset or delete your Advertising ID at any time from your device's
-            <strong>Settings &rarr; Google &rarr; Ads</strong>, which limits how ads are
-            targeted and measured. If you are in the European Economic Area, the United
-            Kingdom, or Switzerland, you can change or withdraw your advertising consent at any
-            time from <strong>Settings &rarr; About &rarr; Ad privacy choices</strong>.
-        </p>
-
-        <h2>5. Data Security</h2>
-
-        <p>
-            Data transmitted for analytics is encrypted in transit using secure
-            network connections. If you enable cloud backup &amp; sync, your backup is
-            stored in a private, app-only folder in your own Google Drive and is protected
-            by Google's encryption in transit and at rest. We take reasonable measures to
-            protect the information collected by the App.
-        </p>
-
-        <h2>6. Changes to This Privacy Policy</h2>
-
-        <p>
-            We may update this Privacy Policy from time to time.
-            Any changes will be posted on this page with an updated
-            "Last Updated" date.
-        </p>
-
-        <h2>7. Contact Us</h2>
-
-        <p>
-            If you have any questions about this Privacy Policy,
-            please contact us at:
-        </p>
-
-        <p><strong>ddtechstudio8@gmail.com</strong></p>
-
-    </div>
+            // Back-to-top button.
+            var toTop = document.querySelector('.to-top');
+            window.addEventListener('scroll', function () {
+                toTop.classList.toggle('show', window.scrollY > 600);
+            }, { passive: true });
+            toTop.addEventListener('click', function () { window.scrollTo({ top: 0 }); });
+        })();
+    </script>
 </body>
 </html>
