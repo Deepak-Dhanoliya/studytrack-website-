@@ -1,6 +1,6 @@
 {
   "latestVersion": "1.0.4",
-  "forceUpdate": false,
+  "forceUpdate": true,
   "minSupportedVersion": "1.0.2",
   "storeUrl": "https://play.google.com/store/apps/details?id=app.habitry",
   "releaseNotes": ""
