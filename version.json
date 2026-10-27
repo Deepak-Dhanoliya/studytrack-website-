@@ -1,9 +1,9 @@
 {
-  "latestVersion": "2.6.0",
-  "forceUpdate": false,
-  "minSupportedVersion": "2.5.0",
+  "latestVersion": "2.6.1",
+  "forceUpdate": true,
+  "minSupportedVersion": "2.6.1",
   "storeUrl": "https://play.google.com/store/apps/details?id=com.deepakdhanoliya9131.StudyTrack",
-  "releaseNotes": "What's new in 2.6.0 ✨\n\n🌍 Now in 23 languages\n🔕 Blocked apps' notifications wait until you finish\n✏️ Rename & recolour the \"All\" subject\n🐛 Crash & freeze fixes"
+  "releaseNotes": "What's new in 2.6.1 ✨\n\n🌍 Now in 23 languages\n🔕 Blocked apps' notifications wait until you finish\n✏️ Rename & recolour the \"All\" subject\n🐛 Crash & freeze fixes"
 }
 
 
