@@ -1,9 +1,7 @@
 {
-  "latestVersion": "2.7.0",
-  "forceUpdate": true,
-  "minSupportedVersion": "2.7.0",
+  "latestVersion": "2.8.0",
+  "forceUpdate": false,
+  "minSupportedVersion": "2.8.0",
   "storeUrl": "https://play.google.com/store/apps/details?id=com.deepakdhanoliya9131.StudyTrack",
-  "releaseNotes": "What's new in 2.7.0 ✨\n\n🌍 Now in 23 languages\n🔕 Blocked apps' notifications wait until you finish\n✏️ Rename & recolour the \"All\" subject\n🐛 Crash & freeze fixes"
+  "releaseNotes": "What's new in 2.8.0 ✨\n\n🔒 Smarter App Blocker: Study to unlock, Wait before opening & more\n📺 Block WhatsApp Status, Shorts & Reels\n⏱️ Timer no longer keeps running after you stop it\n🐛 Bug fixes & faster pages"
 }
-
-
